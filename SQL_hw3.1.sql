@@ -36,6 +36,11 @@ create table if not exists Track(
 create table if not exists Collection(
 	id serial primary key,
 	title varchar(40) not null,
-	track_id integer not null references Track(id),
 	duration integer not null
+);
+
+create table if not exists CollectionTrack(
+	collection_id integer not null references Collection(id),
+	track_id integer not null references track(id),
+	constraint collection_track primary key (collection_id, track_id)
 );

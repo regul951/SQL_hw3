@@ -17,6 +17,6 @@ create table if not exists DeptInfo(
 create table if not exists WorkerInfo(
 	worker_id integer primary key references Worker(id),
 	dept_id integer not null references Dept(id),
-	chief integer references DeptInfo(chief_dept)
+	chief integer references WorkerInfo(worker_id)
 );
 
